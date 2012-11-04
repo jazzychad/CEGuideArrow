@@ -16,6 +16,11 @@
 		6367A0F4164718FF005CD7BF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6367A0F3164718FF005CD7BF /* Default.png */; };
 		6367A0F6164718FF005CD7BF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6367A0F5164718FF005CD7BF /* Default@2x.png */; };
 		6367A0F8164718FF005CD7BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6367A0F7164718FF005CD7BF /* Default-568h@2x.png */; };
+		6367A10116471975005CD7BF /* CEGuideArrow.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367A10016471975005CD7BF /* CEGuideArrow.m */; };
+		6367A10416471999005CD7BF /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6367A10316471999005CD7BF /* DemoViewController.m */; };
+		6367A107164719D3005CD7BF /* GuideArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6367A105164719D3005CD7BF /* GuideArrow.png */; };
+		6367A108164719D3005CD7BF /* GuideArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6367A106164719D3005CD7BF /* GuideArrow@2x.png */; };
+		6367A10A16471B81005CD7BF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6367A10916471B81005CD7BF /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,13 @@
 		6367A0F3164718FF005CD7BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		6367A0F5164718FF005CD7BF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6367A0F7164718FF005CD7BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6367A0FF16471975005CD7BF /* CEGuideArrow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CEGuideArrow.h; sourceTree = "<group>"; };
+		6367A10016471975005CD7BF /* CEGuideArrow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CEGuideArrow.m; sourceTree = "<group>"; };
+		6367A10216471999005CD7BF /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		6367A10316471999005CD7BF /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		6367A105164719D3005CD7BF /* GuideArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GuideArrow.png; sourceTree = "<group>"; };
+		6367A106164719D3005CD7BF /* GuideArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GuideArrow@2x.png"; sourceTree = "<group>"; };
+		6367A10916471B81005CD7BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6367A10A16471B81005CD7BF /* QuartzCore.framework in Frameworks */,
 				6367A0E2164718FF005CD7BF /* UIKit.framework in Frameworks */,
 				6367A0E4164718FF005CD7BF /* Foundation.framework in Frameworks */,
 				6367A0E6164718FF005CD7BF /* CoreGraphics.framework in Frameworks */,
@@ -51,7 +64,9 @@
 		6367A0D2164718FF005CD7BF = {
 			isa = PBXGroup;
 			children = (
-				6367A0E7164718FF005CD7BF /* CEGuideArrow */,
+				6367A10916471B81005CD7BF /* QuartzCore.framework */,
+				6367A0FE16471920005CD7BF /* CEGuideArrow */,
+				6367A0E7164718FF005CD7BF /* CEGuideArrowDemo */,
 				6367A0E0164718FF005CD7BF /* Frameworks */,
 				6367A0DE164718FF005CD7BF /* Products */,
 			);
@@ -75,13 +90,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6367A0E7164718FF005CD7BF /* CEGuideArrow */ = {
+		6367A0E7164718FF005CD7BF /* CEGuideArrowDemo */ = {
 			isa = PBXGroup;
 			children = (
 				6367A0F0164718FF005CD7BF /* AppDelegate.h */,
 				6367A0F1164718FF005CD7BF /* AppDelegate.m */,
+				6367A10216471999005CD7BF /* DemoViewController.h */,
+				6367A10316471999005CD7BF /* DemoViewController.m */,
 				6367A0E8164718FF005CD7BF /* Supporting Files */,
 			);
+			name = CEGuideArrowDemo;
 			path = CEGuideArrow;
 			sourceTree = "<group>";
 		};
@@ -97,6 +115,17 @@
 				6367A0F7164718FF005CD7BF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6367A0FE16471920005CD7BF /* CEGuideArrow */ = {
+			isa = PBXGroup;
+			children = (
+				6367A105164719D3005CD7BF /* GuideArrow.png */,
+				6367A106164719D3005CD7BF /* GuideArrow@2x.png */,
+				6367A0FF16471975005CD7BF /* CEGuideArrow.h */,
+				6367A10016471975005CD7BF /* CEGuideArrow.m */,
+			);
+			name = CEGuideArrow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +183,8 @@
 				6367A0F4164718FF005CD7BF /* Default.png in Resources */,
 				6367A0F6164718FF005CD7BF /* Default@2x.png in Resources */,
 				6367A0F8164718FF005CD7BF /* Default-568h@2x.png in Resources */,
+				6367A107164719D3005CD7BF /* GuideArrow.png in Resources */,
+				6367A108164719D3005CD7BF /* GuideArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +197,8 @@
 			files = (
 				6367A0EE164718FF005CD7BF /* main.m in Sources */,
 				6367A0F2164718FF005CD7BF /* AppDelegate.m in Sources */,
+				6367A10116471975005CD7BF /* CEGuideArrow.m in Sources */,
+				6367A10416471999005CD7BF /* DemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +271,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CEGuideArrow/CEGuideArrow-Prefix.pch";
 				INFOPLIST_FILE = "CEGuideArrow/CEGuideArrow-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -249,6 +283,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CEGuideArrow/CEGuideArrow-Prefix.pch";
 				INFOPLIST_FILE = "CEGuideArrow/CEGuideArrow-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
