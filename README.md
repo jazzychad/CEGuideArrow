@@ -21,6 +21,10 @@ Video](http://www.youtube.com/watch?v=U6sdXCZmmMM).
 There is a demo XCode project included with this repo to demonstrate
 use of the class.
 
+## Screenshot
+
+![screenshot](https://raw.github.com/jazzychad/CEGuideArrow/master/screenshot.png "screenshot")
+
 ## Documentation
 
 There is not much in the way of documentation yet (maybe ever?), but
