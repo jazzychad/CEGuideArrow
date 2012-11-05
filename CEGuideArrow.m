@@ -1,10 +1,31 @@
 //
 //  CEGuideArrow.m
-//  Pixit
 //
-//  Created by Charles Etzel on 7/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by Chad Etzel on 7/22/12.
+//  Copyright (c) <2012> Chad Etzel
 //
+//  MIT License
+//
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the "Software"), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
+//
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
 
 #import "CEGuideArrow.h"
 
@@ -58,6 +79,18 @@ static CEGuideArrow *_sharedGuideArrow;
     return CGPointMake(1.0, 0.5);
 }
 
+- (void)removeCompleted
+{
+    [_arrowView removeFromSuperview];
+    
+    if ([self.delegate respondsToSelector:@selector(ceGuideArrow:didDisappearInWindow:atPoint:inView:length:)]) {
+        [self.delegate ceGuideArrow:self didDisappearInWindow:_window atPoint:_point inView:_view length:_length];
+    }
+    
+    _displayed = NO;
+    [_arrowView.layer removeAnimationForKey:@"bounceAnimation"];
+}
+
 - (void)removeAnimated:(BOOL)animated
 {
     if ([self.delegate respondsToSelector:@selector(ceGuideArrow:willDisappearInWindow:atPoint:inView:length:)]) {
@@ -72,27 +105,13 @@ static CEGuideArrow *_sharedGuideArrow;
             
         } completion:^(BOOL finished) {
             
-            [_arrowView removeFromSuperview];
-            
-            if ([self.delegate respondsToSelector:@selector(ceGuideArrow:didDisappearInWindow:atPoint:inView:length:)]) {
-                [self.delegate ceGuideArrow:self didDisappearInWindow:_window atPoint:_point inView:_view length:_length];
-            }
-            
-            _displayed = NO;
-            [_arrowView.layer removeAnimationForKey:@"bounceAnimation"];
+            [self removeCompleted];
             
         }];
         
     } else {
         
-        [_arrowView removeFromSuperview];
-        
-        if ([self.delegate respondsToSelector:@selector(ceGuideArrow:didDisappearInWindow:atPoint:inView:length:)]) {
-            [self.delegate ceGuideArrow:self didDisappearInWindow:_window atPoint:_point inView:_view length:_length];
-        }
-        
-        _displayed = NO;
-        [_arrowView.layer removeAnimationForKey:@"bounceAnimation"];
+        [self removeCompleted];
         
     }
 }
@@ -123,7 +142,7 @@ static CEGuideArrow *_sharedGuideArrow;
     windowPoint = CGPointMake(windowRect.origin.x + point.x, windowRect.origin.y + point.y);
     
     
-    //// animation
+    //// bounce animation
 
     [_arrowView.layer removeAnimationForKey:@"bounceAnimation"];
     
