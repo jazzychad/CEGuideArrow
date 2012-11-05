@@ -61,6 +61,8 @@ typedef enum {
 
 + (CEGuideArrow *)sharedGuideArrow;
 
+- (id)initWithArrowImage:(UIImage *)arrowImage anchorPoint:(CGPoint)anchorPoint;
+
 - (void)showInWindow:(UIWindow *)window atPoint:(CGPoint)point inView:(UIView *)view atAngle:(CGFloat)degrees length:(CGFloat)length;
 
 - (void)showInWindow:(UIWindow *)window atPoint:(CGPoint)point inView:(UIView *)view atAngle:(CGFloat)degrees;
